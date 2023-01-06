@@ -10,11 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.allenfc.rest.webservices.restfullwebservices.models.Item;
 import com.allenfc.rest.webservices.restfullwebservices.models.Job;
-import com.allenfc.rest.webservices.restfullwebservices.models.Cart;
 import com.allenfc.rest.webservices.restfullwebservices.models.TestingBean;
 import com.allenfc.rest.webservices.restfullwebservices.models.User;
 import com.allenfc.rest.webservices.restfullwebservices.security.BCryptEncoder;
-import com.allenfc.rest.webservices.restfullwebservices.services.CartService;
 import com.allenfc.rest.webservices.restfullwebservices.services.ItemService;
 import com.allenfc.rest.webservices.restfullwebservices.services.JobService;
 import com.allenfc.rest.webservices.restfullwebservices.services.UserService;
@@ -29,8 +27,6 @@ public class MiscController {
 	private JobService jobService;
 	@Autowired
 	private UserService userService;
-	@Autowired
-	private CartService cartService;
 	
 	BCryptEncoder encoder = new BCryptEncoder();
 	
@@ -69,8 +65,8 @@ public class MiscController {
        
         
 		
-		  Cart donut = new Cart(u, i, 12, 12*i.getPrice()); 
-		  Cart donut1 = new Cart(u1, i, 12, 12*i.getPrice()); 
+//		  Cart donut = new Cart(u, i, 12, 12*i.getPrice()); 
+//		  Cart donut1 = new Cart(u1, i, 12, 12*i.getPrice()); 
 		  
 //		  Cart coffee = new Cart(2L, i1.getId(), 1); 
 //		  Cart coffeeCake = new Cart(3L, i2.getId(), 4); 

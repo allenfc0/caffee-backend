@@ -8,8 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import com.allenfc.rest.webservices.restfullwebservices.security.BCryptEncoder;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

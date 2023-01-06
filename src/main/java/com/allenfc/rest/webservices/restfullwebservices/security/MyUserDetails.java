@@ -9,6 +9,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 public class MyUserDetails implements UserDetails {
 
+	/**
+	 * default SVUID for build
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private String username;
 
 	public MyUserDetails() {

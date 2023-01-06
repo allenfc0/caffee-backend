@@ -10,7 +10,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.ForeignKey;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity(name = "Cart")
 @Table(name = "cart")
