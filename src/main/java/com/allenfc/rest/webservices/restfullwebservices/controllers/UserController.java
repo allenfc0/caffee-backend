@@ -20,7 +20,7 @@ import com.allenfc.rest.webservices.restfullwebservices.models.User;
 import com.allenfc.rest.webservices.restfullwebservices.services.UserService;
 
 @RestController
-@CrossOrigin(origins="http://localhost:4200", maxAge=3600, allowedHeaders="content-type:application.json")
+@CrossOrigin(origins="http://gavi-caffee.surge.sh", maxAge=3600, allowedHeaders="content-type:application.json")
 public class UserController { 
 	
 	@Autowired

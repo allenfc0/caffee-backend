@@ -18,7 +18,7 @@ import com.allenfc.rest.webservices.restfullwebservices.services.JobService;
 import com.allenfc.rest.webservices.restfullwebservices.services.UserService;
 
 @RestController
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="http://gavi-caffee.surge.sh")
 public class MiscController {
 	
 	@Autowired

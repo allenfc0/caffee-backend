@@ -20,7 +20,7 @@ import com.allenfc.rest.webservices.restfullwebservices.models.Cart;
 import com.allenfc.rest.webservices.restfullwebservices.services.CartService;
 
 @RestController
-@CrossOrigin(origins="*")
+@CrossOrigin(origins="http://gavi-caffee.surge.sh")
 public class CartController {
 	
 	@Autowired

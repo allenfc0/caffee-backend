@@ -22,7 +22,7 @@ import com.allenfc.rest.webservices.restfullwebservices.services.ItemService;
 import com.allenfc.rest.webservices.restfullwebservices.models.Item;
 
 @RestController
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="http://gavi-caffee.surge.sh")
 public class ItemController {
 	
 	@Autowired

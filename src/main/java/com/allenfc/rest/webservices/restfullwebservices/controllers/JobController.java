@@ -20,7 +20,7 @@ import com.allenfc.rest.webservices.restfullwebservices.models.Job;
 import com.allenfc.rest.webservices.restfullwebservices.services.JobService;
 
 @RestController
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="http://gavi-caffee.surge.sh")
 public class JobController {
 	
 	@Autowired
