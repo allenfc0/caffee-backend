@@ -20,37 +20,37 @@ import com.allenfc.rest.webservices.restfullwebservices.models.User;
 import com.allenfc.rest.webservices.restfullwebservices.services.UserService;
 
 @RestController
-@CrossOrigin(origins="http://gavi-caffee.surge.sh", maxAge=3600, allowedHeaders="content-type:application.json")
+@CrossOrigin(origins="*", maxAge=3600, allowedHeaders="content-type:application.json")
 public class UserController { 
 	
 	@Autowired
 	private UserService userService;
 	
-	@GetMapping(path="/user-list")
+	@GetMapping(path="/api/users-list")
 	public Iterable<User> getAllJobs() {
 		return userService.findAll();
 	}
 	
-	@GetMapping(path="/users/{id}") 
+	@GetMapping(path="/api/users/{id}") 
 	public User getUserById(@PathVariable Long id) {
 		return userService.findUserById(id);
 	}
 	
 	//used for logging in
-	@GetMapping(path="/users/username/{username}", produces=MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(path="/api/users/username/{username}", produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<User> getUserByUsername(@PathVariable String username) {
 		System.out.println("\n\n\n\n" +username+"----------------------------------------------------------");
 		return new ResponseEntity<>(userService.findUserByUsername(username), HttpStatus.OK);
 	}
 	
-	@DeleteMapping(path="users/delete/{id}")
+	@DeleteMapping(path="/api/users/delete/{id}")
 	public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
 		userService.deleteUserById(id);
 		
 		return ResponseEntity.noContent().build();
 	}
 	
-	@PutMapping(path="/users/update/{id}")
+	@PutMapping(path="/api/users/update/{id}")
 	public ResponseEntity<User> updateUser(
 			@PathVariable Long id,
 			@RequestBody User user) {
@@ -59,7 +59,7 @@ public class UserController {
 		return new ResponseEntity<User>(updatedUser, HttpStatus.OK);
 	}
 	
-	@PostMapping(path="/users/create") 
+	@PostMapping(path="/api/users/create") 
 	public ResponseEntity<Void> createdUser (
 			@RequestBody User user) {
 		user.setId(userService.getNextAvailableId());

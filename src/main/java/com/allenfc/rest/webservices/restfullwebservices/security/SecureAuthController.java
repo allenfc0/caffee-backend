@@ -16,7 +16,7 @@ import com.allenfc.rest.webservices.restfullwebservices.models.User;
 import com.allenfc.rest.webservices.restfullwebservices.services.UserService;
 
 @RestController
-@CrossOrigin(origins="http://localhost:4200", maxAge=3600, allowedHeaders="content-type:application.json")
+@CrossOrigin(origins="*", maxAge=3600, allowedHeaders="content-type:application.json")
 public class SecureAuthController {
 	
 	@Autowired
@@ -36,7 +36,7 @@ public class SecureAuthController {
 	 */
 	
 	//This basicAuth method is for testing basic login with no token or security
-	@GetMapping(path="/basicAuth/{username}/{password}")
+	@GetMapping(path="/api/basicAuth/{username}/{password}")
 	public ResponseEntity<BasicAuthentication> authenticationNoToken(@PathVariable String username, @PathVariable String password) {
 		BasicAuthentication code = new BasicAuthentication(400);
 		
@@ -57,7 +57,7 @@ public class SecureAuthController {
 		return new ResponseEntity<BasicAuthentication>(code, HttpStatus.OK);
 	}
 	
-	@GetMapping(path="/tokenAuth/{username}/{password}")
+	@GetMapping(path="/api/tokenAuth/{username}/{password}")
 	public ResponseEntity<BasicAuthentication> authenticationWithToken(@PathVariable String username, @PathVariable String password) {
 		BasicAuthentication code = new BasicAuthentication(100);
 		//get 'normal' String username and password from token
@@ -84,7 +84,7 @@ public class SecureAuthController {
 		return new ResponseEntity<>(code, HttpStatus.OK);
 	}
 	
-	@GetMapping(path="/basicAuth/{token}")
+	@GetMapping(path="/api/basicAuth/{token}")
 	public BasicAuthentication authentication(@PathVariable String token) {
 		BasicAuthentication code = new BasicAuthentication(100);
 		//get 'normal' String username and password from token

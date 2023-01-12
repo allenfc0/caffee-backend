@@ -20,30 +20,30 @@ import com.allenfc.rest.webservices.restfullwebservices.models.Cart;
 import com.allenfc.rest.webservices.restfullwebservices.services.CartService;
 
 @RestController
-@CrossOrigin(origins="http://gavi-caffee.surge.sh")
+@CrossOrigin(origins="*")
 public class CartController {
 	
 	@Autowired
 	private CartService cartService;
 	
-	@GetMapping(path="/carts-list")
+	@GetMapping(path="/api/carts-list")
 	public List<Cart> getAllCarts() {
 		return cartService.findAll();
 	}
 	
-	@GetMapping(path="/carts/{id}")
+	@GetMapping(path="/api/carts/{id}")
 	public Cart getCartById(@PathVariable Long id) {
 		return cartService.findCartById(id);
 	}
 	
-	@DeleteMapping(path="/carts/delete/{id}")
+	@DeleteMapping(path="/api/carts/delete/{id}")
 	public ResponseEntity<Void> deleteCart(@PathVariable Long id) {
 		cartService.deleteCartById(id);
 		
 		return ResponseEntity.noContent().build();
 	}
 	
-	@PutMapping(path={"/carts/update/{id}", "/carts/orderred/{id}"})
+	@PutMapping(path={"/api/carts/update/{id}", "/api/carts/orderred/{id}"})
 	public ResponseEntity<Cart> updateCart(
 			@PathVariable Long id,
 			@RequestBody Cart cart) {
@@ -52,7 +52,7 @@ public class CartController {
 		return new ResponseEntity<Cart>(updatedCart, HttpStatus.OK);
 	}
 	
-	@PostMapping(path="/carts/create")
+	@PostMapping(path="/api/carts/create")
 	public ResponseEntity<Void> createCart(@RequestBody Cart cart) {
 		Cart createdCart = cartService.saveCart(cart);
 		
@@ -61,7 +61,7 @@ public class CartController {
 		return ResponseEntity.created(uri).build();
 	}
 	
-	@GetMapping(path="/carts/list/user-id/{id}")
+	@GetMapping(path="/api/carts/list/{id}")
 	public List<Cart> findCartListByUserId(@PathVariable Long id) {
 		return cartService.findCartListByUserId(id);
 	}

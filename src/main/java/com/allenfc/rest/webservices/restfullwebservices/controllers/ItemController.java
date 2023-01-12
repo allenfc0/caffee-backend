@@ -33,19 +33,19 @@ public class ItemController {
 		return "home";
 	}
 	
-	@GetMapping(path="/items-list")
+	@GetMapping(path="/api/items-list")
 	public List<Item> getAllItems() {
 		
 		return itemService.findAll();
 	}
 	
-	@GetMapping(path="items/{id}")
+	@GetMapping(path="/api/items/{id}")
 	public Item getItemById(@PathVariable Long id) {
 		return itemService.findItemById(id);
 		
 	}
 	
-	@DeleteMapping(path="/items/delete/{id}")
+	@DeleteMapping(path="/api/items/delete/{id}")
 	public ResponseEntity<Void> deleteItem(@PathVariable Long id) {
 		System.out.println("backend");
 		itemService.deleteItemById(id);
@@ -54,7 +54,7 @@ public class ItemController {
 		
 	}
 	
-	@PutMapping(path="/items/update/{id}")
+	@PutMapping(path="/api/items/update/{id}")
 	public ResponseEntity<Item> updateItem(
 			@PathVariable Long id, 
 			@RequestBody Item item) {
@@ -64,7 +64,7 @@ public class ItemController {
 		
 	}
 	
-	@PostMapping(path="/items/create")
+	@PostMapping(path="/api/items/create")
 	public ResponseEntity<Void> createItem(@RequestBody Item item) {
 		Item createdItem = itemService.saveItem(item);
 		

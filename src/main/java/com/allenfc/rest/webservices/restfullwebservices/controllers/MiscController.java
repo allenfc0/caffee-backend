@@ -18,7 +18,7 @@ import com.allenfc.rest.webservices.restfullwebservices.services.JobService;
 import com.allenfc.rest.webservices.restfullwebservices.services.UserService;
 
 @RestController
-@CrossOrigin(origins="http://gavi-caffee.surge.sh")
+@CrossOrigin(origins="*")
 public class MiscController {
 	
 	@Autowired
@@ -30,7 +30,7 @@ public class MiscController {
 	
 	BCryptEncoder encoder = new BCryptEncoder();
 	
-	@GetMapping(path="/testing")
+	@GetMapping(path="/api/testing")
 	public TestingBean helloWorld() {
 		return new TestingBean("hello testing");
 	}

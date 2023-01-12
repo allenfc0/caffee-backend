@@ -30,24 +30,24 @@ public class JobController {
 		this.jobService = jobService;
 	}
 
-	@GetMapping(path="/jobs-list")
-	public List<Job> getAllItems() {
+	@GetMapping(path="/api/jobs-list")
+	public List<Job> getAllJobs() {
 		return jobService.findAll();
 	}
 	
-	@GetMapping(path="/jobs/{id}")
+	@GetMapping(path="/api/jobs/{id}")
 	public Job getJobById(@PathVariable long id) {
 		return jobService.findJobById(id);
 	}
 	
-	@DeleteMapping(path="/jobs/delete/{id}")
+	@DeleteMapping(path="/api/jobs/delete/{id}")
 	public ResponseEntity<Void> deleteJob(@PathVariable long id) {
 		 jobService.deleteJobById(id);
 		
 		return ResponseEntity.noContent().build();
 	}
 	
-	@PutMapping(path="/jobs/update/{id}")
+	@PutMapping(path="/api/jobs/update/{id}")
 	public ResponseEntity<Job> updateJob(
 			@PathVariable long id, 
 			@RequestBody Job job) {
@@ -57,8 +57,8 @@ public class JobController {
 		
 	}
 	
-	@PostMapping(path="/jobs/create")
-	public ResponseEntity<Void> createdItem (
+	@PostMapping(path="/api/jobs/create")
+	public ResponseEntity<Void> createJob (
 			@RequestBody Job job) {
 		Job createdJob = jobService.saveJob(job);
 		
