@@ -75,7 +75,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			  //In production change domain to: http://gavi-caffee.surge.sh
 			  //In testing change domain to: http://localhost:4200
 			  //configuration.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
-		  	  configuration.setAllowedOrigins(Arrays.asList("https://gavi-caffee.surge.sh"));
+		  	  configuration.setAllowedOrigins(Arrays.asList("https://gavi-caffee.surge.sh", "http://gavi-caffee.surge.sh", "gavi-caffee.surge.sh"));
 		  	  configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE")); 
 		  	  configuration.setAllowCredentials(true);
 		  	  configuration.setAllowedHeaders(Arrays.asList("Authorization", "Cache-Control", "Content-Type")); 
