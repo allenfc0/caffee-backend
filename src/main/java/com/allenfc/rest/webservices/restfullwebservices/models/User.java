@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class User {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	//@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "id", nullable = false)
 	private Long id;
 	
@@ -34,11 +34,6 @@ public class User {
 	@Column(name = "password")
 	private String password;
 	
-	@Column(name="role")
-	private String role;
-	
-	@Column(name="enabled")
-	private Boolean enabled;
 	
 	//private Set<Cart> cart = (Set<Cart>) new ArrayList<Cart>();
 	
@@ -68,15 +63,13 @@ public class User {
 	 */
 
 	//this contructor is ONLY for encrypting password. When Spring Security is implemented
-	public User(Long id, String name, String username, String email, String password, String role, Boolean enabled) {
-		this.id = id;
-		this.name = name;
-		this.username = username;
-		this.email = email;
-		this.password = encoder.passwordEncoder(password);
-		this.role = role;
-		this.enabled = enabled;
-	}
+	/*
+	 * public User(Long id, String name, String username, String email, String
+	 * password) { this.id = id; this.name = name; this.username = username;
+	 * this.email = email; this.password = encoder.passwordEncoder(password);
+	 * 
+	 * }
+	 */
 	
 	public Long getId() {
 		return id;
@@ -119,23 +112,6 @@ public class User {
 		this.password = password;
 	}
 
-	public String getRole() {
-		return role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
-	}
-
-	public Boolean getEnabled() {
-		return enabled;
-	}
-
-	public void setEnabled(Boolean enabled) {
-		this.enabled = enabled;
-	}
-
-	
 	
 	/*
 	 * @OneToMany(cascade = CascadeType.ALL, targetEntity = Cart.class)

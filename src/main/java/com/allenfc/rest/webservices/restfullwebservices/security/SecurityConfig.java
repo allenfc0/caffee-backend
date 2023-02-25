@@ -74,6 +74,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			  UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 			  //In production change domain to: http://gavi-caffee.surge.sh
 			  //In testing change domain to: http://localhost:4200
+			  //configuration.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
 		  	  configuration.setAllowedOrigins(Arrays.asList("https://gavi-caffee.surge.sh"));
 		  	  configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE")); 
 		  	  configuration.setAllowCredentials(true);

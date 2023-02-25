@@ -46,19 +46,19 @@ public class MiscController {
 		Job j = new Job(20001L, "Dough Master", "become the master of dough", 15);
         jobService.saveJob(j);
 		
-        Item i = new Item(1001L, "donut", "chocolate", 2.69);
-        Item i1 = new Item(1006L, "coffee", "strawberry", 2.69);
-        Item i2 = new Item(1009L, "coffee cake", "vanilla", 2.69);
-        Item i3 = new Item(1012L, "hot chocolate", "hot", 2.69);
+        Item i = new Item(0L, "donut", "chocolate", 2.69);
+        Item i1 = new Item(1L, "coffee", "strawberry", 2.69);
+        Item i2 = new Item(2L, "coffee cake", "vanilla", 2.69);
+        Item i3 = new Item(3L, "hot chocolate", "hot", 2.69);
         itemService.saveItem(i);
         itemService.saveItem(i1);
         itemService.saveItem(i2);
         itemService.saveItem(i3);
         
         
-        User u = new User(10001L, "Allen", "allenfc", "allenfarias29@gmail.com", "pass", "ROLE_USER", true);
-        User u1 = new User(10002L, "admin1", "admin", "admin@gmail.com", "pass", "ROLE_ADMIN", true);
-        User basicUser = new User(10003L, "John", "jd", "john.doe@gmail.com", "pass");
+        User u = new User(0L, "Allen", "allenfc", "allenfarias29@gmail.com", "pass");
+        User u1 = new User(1L, "admin1", "admin", "admin@gmail.com", "pass");
+        User basicUser = new User(2L, "John", "jd", "john.doe@gmail.com", "pass");
         userService.saveUser(u);
         userService.saveUser(u1);
         userService.saveUser(basicUser);
